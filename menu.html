@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Incluye jQuery antes de Fomantic-UI -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Encabezado de la página -->
+    <header>
+
+
+ <!-- Inicio del Header -->
+
+
+     
+      <div class="ui top attached menu">
+        <div class="ui dropdown icon item">
+          <i class="stream icon"></i>
+          <div class="menu">
+            <div class="item">
+              <i class="dropdown icon"></i>
+              <span class="text">Nuevo</span>
+              <div class="menu">
+                <div class="item">Documento</div>
+                <div class="item">Imagen</div>
+              </div>
+            </div>
+            <div class="item">Abrir...</div>
+            <div class="item">Guardar...</div>
+            <div class="item">Editar permisos</div>
+            <div class="divider"></div>
+            <div class="header">Exportar</div>
+            <div class="item">Compartir...</div>
+          </div>
+        </div>
+
+        <div class="item">
+            <img class="ui mini circular image" src="/img/kdsu.png" style="height: 40px; width: auto;" />
+            <div class="content">
+              <div class="ui sub header">
+
+              </div>
+              <font style=" margin-left: 10px; vertical-align: inherit"><font style="vertical-align: inherit"> KDSU PORTAL </font></font
+              >
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <div class="ui breadcrumb">
+              <a class="section">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Hogar</font>
+                </font>
+              </a>
+              <i class="right angle icon divider"></i>
+              <a class="section">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Almacenar</font>
+                </font>
+              </a>
+              <i class="right angle icon divider"></i>
+              <div class="active section">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Camiseta</font>
+                </font>
+              </div>
+            </div>
+          </div>
+          
+          
+
+        <div class="right menu">
+          <div class="ui dropdown item blink" tabindex="0">
+            <div class="" id="notificationHeader">
+              <i class="bell icon"></i>
+              <div
+                class="bottom floating ui yellow label"
+                id="notificationCount"
+              >
+                8
+              </div>
+            </div>
+
+            <div
+              class="menu left transition hidden"
+              id="notificationContainer"
+              style="
+                max-height: 200px;
+                min-width: 400px;
+                max-width: 550px;
+                overflow-y: scroll;
+              "
+              tabindex="-1"
+            >
+              <div class="item textContainer" id="deleteNotifications">
+                <h5 class="center">
+                  <i class="trash icon"></i> Borrar todas las notificaciones.
+                </h5>
+              </div>
+           
+              <div class="divider"></div>
+              <a
+                class="item textContainer"
+                href="/mesadeservicios/notifications/notificationread?id=325602"
+              >
+                <span class="center" style="font-weight: bolder"
+                  >Ticket #148915 - CONSULTA DE PEDIDO
+                </span>
+                <br />
+                <span style="white-space: initial"
+                  >Se ha transferido un nuevo ticket a la mesa.</span
+                ><br />
+                <span>27/12/24 17:47</span>
+              </a>
+              <div class="divider"></div>
+              <a
+                class="item textContainer"
+                href="/mesadeservicios/notifications/notificationread?id=325266"
+              >
+                <span class="center" style="font-weight: bolder"
+                  >Ticket #148783 - Corrección de Uso de CFDI</span
+                >
+                <br />
+                <span style="white-space: initial"
+                  >Se ha transferido un nuevo ticket a la mesa.</span
+                ><br />
+                <span>27/12/24 12:51</span>
+              </a>
+              <div class="divider"></div>
+            </div>
+          </div>
+
+          <div class="item">
+            <img class="ui mini circular image" src="/img/elyse.png" />
+            <div class="content">
+              <div class="ui sub header">
+                <font style="vertical-align: inherit"><font style="vertical-align: inherit">Elyse</font></font>
+              </div>
+              <font style="vertical-align: inherit"><font style="vertical-align: inherit"> Revelador </font></font
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+ <!-- Fin del Header -->
+
+
+
+  </body>
+</html>
