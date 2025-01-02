@@ -15,7 +15,7 @@
     <title>Document</title>
 
     <style>
-      /* ======== HEADER FIJO ======== */
+ 
       .ui.top.attached.menu {
      
         top: 0;
@@ -30,7 +30,16 @@
         background: #fff;
     }
 
-     
+    /* ========== CONTENIDO PRINCIPAL ========== */
+    .pusher {
+            /* Se ubica a la derecha del sidebar y debajo del header */
+            max-width: 100%;
+          
+          /*margin-top: 3.5em;   La altura del header */
+            padding: 1rem;
+            overflow-y: auto;  
+            overflow-x: hidden; 
+          }
 
     /* ========== 1. Ajustes básicos del body para quitar scroll global ========== */
     html, body {
@@ -62,10 +71,9 @@
       bottom: 0;
       width: 220px;   /* Ancho del sidebar */
       overflow-y: auto; /* Scroll independiente si es muy largo */
-      /* Elimina transiciones si quieres que sea “fijo” y sin animación */
       transition: none !important;
     }
-      /* Tus estilos previos para menú flotante de usuario, etc. */
+    
       #usuario {
         width: 150px; 
         padding: 10px;
@@ -108,10 +116,10 @@
 
   <body>
 
-    <!-- ======= HEADER (fijo) ======= -->
+
     <header>
       <div class="ui top attached menu">
-        <!-- Botón para mostrar/ocultar la sidebar (si la quisieras colapsable) -->
+        <!-- Botón para mostrar/ocultar la sidebar -->
         <a class="item" id="toggleSidebar">
           <i class="bars icon"></i>
         </a>
@@ -258,7 +266,8 @@
     </header>
 
     <!-- ======= SIDEBAR (ASIDE) ======= -->
-    <div class="ui sidebar vertical menu" id="mySidebar">
+    <div class="ui left visible sidebar vertical menu" id="mySidebar">
+
       <!-- Campo de búsqueda -->
       <div class="item">
         <div class="ui icon input">
@@ -266,18 +275,78 @@
           <i class="search icon"></i>
         </div>
       </div>
-      <div class="ui divider"></div>
+   
 
-      <!-- Opciones de menú (placeholder) -->
-      <a class="item">Opción 1</a>
-      <a class="item">Opción 2</a>
-      <a class="item">Opción 3</a>
-      <div class="ui divider"></div>
-      <a class="item">Reportes</a>
-      <a class="item">Procesos</a>
+ 
+   
+      <!-- Estructura de Accordion  -->
+
+
+
+      <div class="Opciones">
+
+      <div class="ui accordion item">
+      
+        <div class="title">
+          <i class="dropdown icon"></i> 
+          Catálogos
+        </div>
+      
+        <div class="content">
+          <a class="item">Opción 1.1</a>
+          <a class="item">Opción 1.2</a>
+        </div>
+      </div>
+
+      <div class="ui accordion item">
+        
+        <div class="title">
+          <i class="dropdown icon"></i> 
+          Consultas
+        </div>
+       
+        <div class="content">
+          <a class="item">Opción 1.1</a>
+          <a class="item">Opción 1.2</a>
+        </div>
+      </div>
+
+
+      <div class="ui accordion item">
+   
+        <div class="title">
+          <i class="dropdown icon"></i> 
+          Reportes
+        </div>
+       
+        <div class="content">
+          <a class="item">Opción 1.1</a>
+          <a class="item">Opción 1.2</a>
+        </div>
+      </div>
+
+
+      <div class="ui accordion item">
+      
+        <div class="title">
+          <i class="dropdown icon"></i> 
+          Procesos
+        </div>
+     
+        <div class="content">
+          <a class="item">Opción 1.1</a>
+          <a class="item">Opción 1.2</a>
+        </div>
+      </div>
+
+    </div>
+
+     
 
       
     </div>
+
+    <!-- ======= CONTENEDOR PRINCIPAL (a la derecha del aside) ======= -->
 
     <div class="pusher" style="max-width: 100%;">
 
@@ -285,7 +354,7 @@
       <p>
         Aquí va el contenido de la página. El header está arriba, fijo.  
         El menú lateral (sidebar) está debajo del header,  
-        y este contenido se muestra a la derecha del menú lateral.
+        y este contenido se muestra a la derecha del menú lateral.dghghdfghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggj
       </p>
       <p>
         Si deseas que la sidebar aparezca oculta y se despliegue con 
@@ -293,7 +362,7 @@
         (<i class="bars icon"></i>) y no usar `transition: none`. 
       </p>
     </div>
-<!-- ======= CONTENEDOR PRINCIPAL (a la derecha del aside) ======= -->
+
 
 
     
@@ -311,6 +380,15 @@
         $('#toggleSidebar').on('click', function () {
           $('.ui.sidebar').sidebar('toggle');
         });
+
+
+      // Inicializa el Accordion (para Opción 1 y sus subopciones)
+      $('.ui.accordion').accordion();
+
+
+      
+
+
 
         // Manejar el clic en el componente de notificaciones
         $('#notificaciones').on('click', function (event) {
