@@ -13,7 +13,60 @@
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
 
     <title>Document</title>
+
+
   </head>
+  <style>
+    #usuario {
+      width: 150px; /* Ancho del ítem */
+      padding: 10px; /* Espaciado interno */
+      cursor: pointer; /* Cambiar el cursor a pointer */
+    }
+  
+    #usuario .content {
+      text-align: center; /* Centra el contenido del ítem */
+    }
+  
+
+     /* Estilo del menú flotante */
+  #userMenu {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 100%; /* Alinear debajo del ítem usuario */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 200px; /* Ancho del menú */
+  }
+
+    #userMenu .ui.card {
+      width: 200px; /* Ancho del menú flotante */
+      padding: 0; /* Eliminar padding para que el ancho coincida con las opciones */
+    }
+  
+    #userMenu .ui.vertical.menu {
+      width: 100%; /* Asegura que el menú ocupe todo el ancho del card */
+    }
+  
+    #userMenu .ui.vertical.menu .item {
+      font-size: 14px; /* Tamaño de fuente */
+      padding: 10px; /* Espaciado interno */
+    }
+  
+    #userMenu .ui.card .content .ui.centered.circular.image {
+      width: 100px; /* Tamaño de la imagen */
+      height: 100px;
+    }
+  
+    #userMenu .ui.card .content {
+      padding: 10px; /* Espaciado interno del contenido */
+      text-align: center;
+    }
+  </style>
+  
+  
+
+
   <body>
     <!-- Encabezado de la página -->
     <header>
@@ -79,7 +132,7 @@
           
           
 
-        <div class="right menu">
+        <div class="right menu" id="notificaciones">
           <div class="ui dropdown item blink" tabindex="0">
             <div class="" id="notificationHeader">
               <i class="bell icon"></i>
@@ -111,7 +164,7 @@
               <div class="divider"></div>
               <a
                 class="item textContainer"
-                href="/mesadeservicios/notifications/notificationread?id=325602"
+             
               >
                 <span class="center" style="font-weight: bolder"
                   >Ticket #148915 - CONSULTA DE PEDIDO
@@ -125,7 +178,7 @@
               <div class="divider"></div>
               <a
                 class="item textContainer"
-                href="/mesadeservicios/notifications/notificationread?id=325266"
+               
               >
                 <span class="center" style="font-weight: bolder"
                   >Ticket #148783 - Corrección de Uso de CFDI</span
@@ -140,18 +193,62 @@
             </div>
           </div>
 
-          <div class="item">
+
+
+          
+          <div class="item" id="usuario" style="position: relative;">
             <img class="ui mini circular image" src="/img/elyse.png" />
             <div class="content">
               <div class="ui sub header">
                 <font style="vertical-align: inherit"><font style="vertical-align: inherit">Elyse</font></font>
               </div>
-              <font style="vertical-align: inherit"><font style="vertical-align: inherit"> Revelador </font></font
-              >
+              <font style="vertical-align: inherit"><font style="vertical-align: inherit"> Revelador </font></font>
+            </div>
+          
+            <!-- Menú flotante oculto -->
+            <div
+              class="ui card hidden"
+              id="userMenu"
+              style="
+                position: absolute;
+                top: 80%;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+              "
+            >
+              <div class="content" style="text-align: center;">
+                <img class="ui centered circular image" src="/img/elyse.png" style="width: 100px; height: 100px;" />
+                <div class="header" style="margin-top: 10px;">Elyse</div>
+                <div class="meta">Revelador</div>
+              </div>
+             
+              <div class="ui vertical menu">
+                <a class="item">
+                  <i class="user icon"></i> Perfil
+                </a>
+                <a class="item">
+                  <i class="cog icon"></i> Configuración
+                </a>
+                <a class="item">
+                  <i class="envelope icon"></i> Mensajes
+                </a>
+                <a class="item">
+                  <i class="sign-out icon"></i> Cerrar sesión
+                </a>
+              </div>
             </div>
           </div>
+       
         </div>
+
+
+
       </div>
+
+
+     
+      
     </header>
 
 
@@ -161,3 +258,56 @@
 
   </body>
 </html>
+<script>
+  $(document).ready(function () {
+    // Manejar el clic en el componente de notificaciones con ID específico
+    $('#notificaciones').on('click', function (event) {
+      // Prevenir que el clic se propague a otros elementos
+      event.stopPropagation();
+
+      // Alternar la visibilidad del menú de notificaciones
+      $('#notificationContainer').toggleClass('hidden');
+    });
+
+    // Evitar abrir el menú de notificaciones al hacer clic en el usuario
+    $('#usuario').on('click', function (event) {
+      event.stopPropagation(); // Evita que el clic interactúe con otros eventos.
+    });
+
+    // Cerrar el menú si se hace clic fuera del componente
+    $(document).on('click', function (event) {
+      if (
+        !$(event.target).closest('#notificaciones').length &&
+        !$(event.target).closest('#notificationContainer').length &&
+        !$(event.target).closest('#usuario').length
+      ) {
+        $('#notificationContainer').addClass('hidden');
+      }
+    });
+  });
+
+
+
+  $(document).ready(function () {
+    // Mostrar/ocultar el menú flotante al hacer clic en el ítem usuario
+    $('#usuario').on('click', function (event) {
+      event.stopPropagation(); // Prevenir propagación del evento
+      $('#userMenu').toggle(); // Alternar visibilidad del menú flotante
+    });
+
+    // Cerrar el menú si se hace clic fuera del ítem usuario o el menú flotante
+    $(document).on('click', function (event) {
+      if (
+        !$(event.target).closest('#usuario').length &&
+        !$(event.target).closest('#userMenu').length
+      ) {
+        $('#userMenu').hide(); // Ocultar el menú flotante
+      }
+    });
+  });
+  
+
+
+  
+</script>
+
