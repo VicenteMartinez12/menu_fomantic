@@ -253,28 +253,29 @@
                 z-index: 10;
               "
             >
-              <div class="content" style="text-align: center;">
+              <div class="content fotoUsuario" style="text-align: center;">
                 <img
                   class="ui centered circular image"
                   src="/img/elyse.png"
                   style="width: 100px; height: 100px;"
+                  id="fotoPerfil"
                 />
-                <div class="header" style="margin-top: 10px;">Elyse</div>
-                <div class="meta">Revelador</div>
+                <div class="header nombre" style="margin-top: 10px;" id="nombreUsuario">Elyse</div>
+                <div class="meta puesto" id="puestoUsuario">Revelador</div>
               </div>
 
-              <div class="ui vertical menu opcionesUsuario">
-                <a class="Perfil item">
-                  <i class="PerfilUsuario icon"></i> Perfil
+              <div class="ui vertical menu opcionesUsuario" id="todasOpcionesUsuario">
+                <a class="perfil item" id="perfilLink">
+                  <i class="perfilUsuario icon"></i> Perfil
                 </a>
-                <a class="Configuracion item">
-                  <i class="ConfiguracionUsuario icon"></i> Configuración
+                <a class="configuracion item" id="configuracionLink">
+                  <i class="configuracionUsuario icon"></i> Configuración
                 </a>
-                <a class="Mensajes item">
-                  <i class="MensajesUsuario icon"></i> Mensajes
+                <a class="mensajes item" id="mensajeLink">
+                  <i class="mensajesUsuario icon"></i> Mensajes
                 </a>
-                <a class="CerrarSesion item">
-                  <i class="CerrarSesionUsuario icon"></i> Cerrar sesión
+                <a class="cerrarSesion item" id="cerrarSesionLink">
+                  <i class="cerrarSesionUsuario icon"></i> Cerrar sesión
                 </a>
               </div>
               
@@ -306,7 +307,7 @@
 
       <div class="ui accordion item catalogos">
       
-        <div class="title">
+        <div class="title ">
           <i class="dropdown icon"></i> 
           Catálogos
         </div>
