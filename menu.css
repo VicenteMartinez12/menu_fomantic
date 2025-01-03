@@ -65,6 +65,7 @@ html, body {
   width: 220px;  
   overflow-y: auto;
   transition: none !important; 
+  height: calc(100vh - 4em) !important; /* Ocupa el resto de la pantalla */
 }
 
 .ui.visible.left.sidebar~.fixed, .ui.visible.left.sidebar~.pusher {
